@@ -3,13 +3,14 @@ import { queryCurrent, queryDetail, fakeAccountLogout } from '@/services/user';
 import { fakeAccountLogin } from '@/services/login';
 import { Toast } from 'antd-mobile';
 import Icon from '@ant-design/icons/lib/components/AntdIcon';
-
+// 当前用户的接口
 interface CurrentUser {
   name?: string;
   icon?: string;
   userid?: string;
 }
 
+// 详细用户信息的接口
 interface DetailUser {
   name: string;
   icon: string;
@@ -17,7 +18,7 @@ interface DetailUser {
   email: string;
   phone: string;
   address: string;
-  signature?: string;
+  signature?: string; // ?:表示该属性或参数为可选项
   title?: string;
   tags?: {
     key: string;
@@ -33,9 +34,10 @@ export interface UserModelState {
     | {
         name: string;
         icon: string;
-      };
+      }; // | 是联合类型，表示 detail 可以是空或者 DetailUser 接口中的信息或者...
 }
 
+// 定义用户模型接口
 export interface UserModelType {
   namespace: 'user';
   state: UserModelState;
