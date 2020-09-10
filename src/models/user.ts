@@ -5,7 +5,7 @@ import { Toast } from 'antd-mobile';
 import Icon from '@ant-design/icons/lib/components/AntdIcon';
 // 当前用户的接口
 interface CurrentUser {
-  name?: string;
+  name?: string; // ？：表示该属性或参数为可选项
   icon?: string;
   userid?: string;
 }
@@ -54,7 +54,7 @@ export interface UserModelType {
 }
 
 const UserModel: UserModelType = {
-  namespace: 'user',
+  namespace: 'user', // 每一个模块定义一个值，不同的模块是不同的
   state: {
     currentUser: {},
     detail: {
@@ -62,6 +62,7 @@ const UserModel: UserModelType = {
       icon: '',
     },
   },
+  // 副作用，处理异步任务（可理解为 Vuex 中的 actions）
   effects: {
     *fetchCurrent(_, { call, put }) {
       const response = yield call(queryCurrent);
@@ -93,6 +94,7 @@ const UserModel: UserModelType = {
       });
     },
   },
+  // 同步修改共享的 state 值
   reducers: {
     saveUser(state, action) {
       return { ...state, ...action.payload };

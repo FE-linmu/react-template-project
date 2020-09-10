@@ -4,15 +4,10 @@
  * @Author: 林慕
  * @Date: 2020-08-30 22:58:57
  * @LastEditors: 林慕
- * @LastEditTime: 2020-09-06 09:24:07
+ * @LastEditTime: 2020-09-08 09:45:30
  */
 import request from '@/utils/request';
-// 函返回的结果是 Promise 对象
-/**
- * @description: 获取
- * @param {type}
- * @return {type}
- */
+//
 export async function queryCurrent(): Promise<any> {
   return request('/api/currentUser'); // 获取当前用户
 }
